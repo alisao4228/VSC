@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.Open_Button = new System.Windows.Forms.Button();
             this.Info_TextBox = new System.Windows.Forms.TextBox();
             this.Table_DataGridView = new System.Windows.Forms.DataGridView();
@@ -42,9 +42,9 @@
             // 
             // Open_Button
             // 
-            this.Open_Button.Location = new System.Drawing.Point(41, 72);
+            this.Open_Button.Location = new System.Drawing.Point(41, 100);
             this.Open_Button.Name = "Open_Button";
-            this.Open_Button.Size = new System.Drawing.Size(452, 29);
+            this.Open_Button.Size = new System.Drawing.Size(681, 34);
             this.Open_Button.TabIndex = 0;
             this.Open_Button.Text = "Открыть файл";
             this.Open_Button.UseVisualStyleBackColor = true;
@@ -52,9 +52,10 @@
             // 
             // Info_TextBox
             // 
-            this.Info_TextBox.Location = new System.Drawing.Point(41, 29);
+            this.Info_TextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.Info_TextBox.Location = new System.Drawing.Point(41, 49);
             this.Info_TextBox.Name = "Info_TextBox";
-            this.Info_TextBox.Size = new System.Drawing.Size(452, 22);
+            this.Info_TextBox.Size = new System.Drawing.Size(681, 34);
             this.Info_TextBox.TabIndex = 1;
             // 
             // Table_DataGridView
@@ -69,16 +70,16 @@
             // 
             // Chart
             // 
-            chartArea1.Name = "ChartArea1";
-            this.Chart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.Chart.Legends.Add(legend1);
+            chartArea3.Name = "ChartArea1";
+            this.Chart.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.Chart.Legends.Add(legend3);
             this.Chart.Location = new System.Drawing.Point(808, 29);
             this.Chart.Name = "Chart";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.Chart.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.Chart.Series.Add(series3);
             this.Chart.Size = new System.Drawing.Size(728, 299);
             this.Chart.TabIndex = 3;
             this.Chart.Text = "Chart";
