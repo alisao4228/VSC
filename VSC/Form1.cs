@@ -52,15 +52,11 @@ namespace VSC
 
         private void CreateChart(DataTable dataTable)
         {
-            // Очистка предыдущих настроек
             Chart.Series.Clear();
             Chart.ChartAreas.Clear();
             Chart.ChartAreas.Add(new ChartArea("MainArea"));
 
-            // Используем первый столбец в качестве оси X
             var xColumn = dataTable.Columns[0];
-
-            // Поиск числовых колонок для построения графиков, исключая первый столбец
             var numericColumns = dataTable.Columns.Cast<DataColumn>()
                                 .Where(col => col != xColumn && (col.DataType == typeof(double) || col.DataType == typeof(int)))
                                 .ToList();
@@ -71,27 +67,17 @@ namespace VSC
                 return;
             }
 
-            // Добавление данных в график
             foreach (var numericColumn in numericColumns)
             {
-                var series = new Series(numericColumn.ColumnName)
-                {
-                    ChartType = SeriesChartType.Line
-                };
+                var series = new Series(numericColumn.ColumnName) { ChartType = SeriesChartType.Line };
 
                 foreach (DataRow row in dataTable.Rows)
                 {
                     if (row[xColumn] != DBNull.Value && row[numericColumn] != DBNull.Value)
                     {
-                        // Попытка преобразовать значения оси X и Y
                         if (double.TryParse(row[xColumn].ToString(), out double xValue) && double.TryParse(row[numericColumn].ToString(), out double yValue))
                         {
                             series.Points.AddXY(xValue, yValue);
-                        }
-                        // В случае неудачи преобразования значения оси X в double, попробуем преобразовать в int
-                        else if (int.TryParse(row[xColumn].ToString(), out int xValueInt) && double.TryParse(row[numericColumn].ToString(), out yValue))
-                        {
-                            series.Points.AddXY(xValueInt, yValue);
                         }
                     }
                 }
@@ -99,5 +85,6 @@ namespace VSC
                 Chart.Series.Add(series);
             }
         }
+
     }
 }

@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.Open_Button = new System.Windows.Forms.Button();
             this.Info_TextBox = new System.Windows.Forms.TextBox();
             this.Table_DataGridView = new System.Windows.Forms.DataGridView();
@@ -70,16 +70,16 @@
             // 
             // Chart
             // 
-            chartArea1.Name = "ChartArea1";
-            this.Chart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.Chart.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.Chart.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.Chart.Legends.Add(legend2);
             this.Chart.Location = new System.Drawing.Point(808, 29);
             this.Chart.Name = "Chart";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.Chart.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.Chart.Series.Add(series2);
             this.Chart.Size = new System.Drawing.Size(887, 523);
             this.Chart.TabIndex = 3;
             this.Chart.Text = "Chart";
@@ -88,7 +88,7 @@
             // 
             this.Result_richTextBox.Location = new System.Drawing.Point(808, 585);
             this.Result_richTextBox.Name = "Result_richTextBox";
-            this.Result_richTextBox.Size = new System.Drawing.Size(728, 67);
+            this.Result_richTextBox.Size = new System.Drawing.Size(887, 67);
             this.Result_richTextBox.TabIndex = 4;
             this.Result_richTextBox.Text = "";
             // 
