@@ -135,6 +135,10 @@ namespace VSC
                                       $"Наименьшее снижение численности: {minDecreaseRegion.Key} ({minDecreaseRegion.Value})";
         }
 
+        
+
+
+
 
 
 
