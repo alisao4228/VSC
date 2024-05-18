@@ -133,14 +133,96 @@ namespace VSC
 
             Result_richTextBox.Text = $"Наибольшее снижение численности: {maxDecreaseRegion.Key} ({maxDecreaseRegion.Value})\n" +
                                       $"Наименьшее снижение численности: {minDecreaseRegion.Key} ({minDecreaseRegion.Value})";
+
         }
 
+        private void Extrapolate_Button_Click(object sender, EventArgs e)
+        {
+            if (Table_DataGridView.DataSource is DataTable dataTable)
+            {
+                if (int.TryParse(Extrapolate_TextBox.Text, out int years))
+                {
+                    ExtrapolateData(dataTable, years);
+                }
+                else
+                {
+                    MessageBox.Show("Введите корректное число лет для экстраполяции.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void ExtrapolateData(DataTable dataTable, int years)
+        {
+            // Очистка предыдущих данных
+            Result_richTextBox.Clear();
+            Chart.Series.Clear();
+
+            var xColumn = dataTable.Columns[0];
+            var numericColumns = dataTable.Columns.Cast<DataColumn>()
+                                .Where(col => col != xColumn && (col.DataType == typeof(double) || col.DataType == typeof(int)))
+                                .ToList();
+
+            int n = 5; // Период скользящей средней, можно сделать его настраиваемым
+
         
+            if (!int.TryParse(dataTable.Rows[dataTable.Rows.Count - 1][xColumn].ToString(), out int lastYear))
+            {
+                MessageBox.Show("Невозможно определить последний год из данных таблицы.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
+            foreach (var numericColumn in numericColumns)
+            {
+                // Проверка наличия данных для региона
+                var originalData = dataTable.AsEnumerable()
+                                            .Where(row => row[numericColumn] != DBNull.Value)
+                                            .Select(row => Convert.ToDouble(row[numericColumn]))
+                                            .ToList();
 
+                if (originalData.Count > 0)
+                {
+                    var series = new Series(numericColumn.ColumnName + " Прогноз")
+                    {
+                        ChartType = SeriesChartType.Line,
+                        Color = System.Drawing.Color.Red,
+                        BorderDashStyle = ChartDashStyle.Dash
+                    };
 
+                    List<double> forecastData = new List<double>(originalData);
 
+                    Result_richTextBox.AppendText($"Прогноз для {numericColumn.ColumnName}\n");
 
+                    for (int i = 0; i < years; i++)
+                    {
+                        double movingAverage = forecastData.Skip(Math.Max(0, forecastData.Count - n)).Take(n).Average();
+                        forecastData.Add(movingAverage);
+
+                        int forecastYear = lastYear + i + 1;
+                        Result_richTextBox.AppendText($"Год {forecastYear}: Скользящая средняя последних {n} значений = {movingAverage}\n");
+                    }
+
+                    for (int i = 0; i < forecastData.Count; i++)
+                    {
+                        double xValue;
+                        if (i < dataTable.Rows.Count)
+                        {
+                            xValue = Convert.ToDouble(dataTable.Rows[i][xColumn]);
+                        }
+                        else
+                        {
+                            xValue = lastYear + (i - dataTable.Rows.Count + 1);
+                        }
+                        series.Points.AddXY(xValue, forecastData[i]);
+                    }
+
+                    Chart.Series.Add(series);
+                }
+                else
+                {
+                    Result_richTextBox.AppendText($"Нет данных для {numericColumn.ColumnName}\n");
+                }
+            }
+        }
 
 
 
