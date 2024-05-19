@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.Open_Button = new System.Windows.Forms.Button();
             this.Info_TextBox = new System.Windows.Forms.TextBox();
             this.Table_DataGridView = new System.Windows.Forms.DataGridView();
             this.Chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.Result_richTextBox = new System.Windows.Forms.RichTextBox();
             this.Extrapolate_Button = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Extrapolate_TextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.Table_DataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Chart)).BeginInit();
             this.SuspendLayout();
@@ -72,16 +72,16 @@
             // 
             // Chart
             // 
-            chartArea7.Name = "ChartArea1";
-            this.Chart.ChartAreas.Add(chartArea7);
-            legend7.Name = "Legend1";
-            this.Chart.Legends.Add(legend7);
+            chartArea1.Name = "ChartArea1";
+            this.Chart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.Chart.Legends.Add(legend1);
             this.Chart.Location = new System.Drawing.Point(808, 155);
             this.Chart.Name = "Chart";
-            series7.ChartArea = "ChartArea1";
-            series7.Legend = "Legend1";
-            series7.Name = "Series1";
-            this.Chart.Series.Add(series7);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.Chart.Series.Add(series1);
             this.Chart.Size = new System.Drawing.Size(887, 417);
             this.Chart.TabIndex = 3;
             this.Chart.Text = "Chart";
@@ -102,21 +102,22 @@
             this.Extrapolate_Button.TabIndex = 6;
             this.Extrapolate_Button.Text = "Реализовать статистическое прогнозирование";
             this.Extrapolate_Button.UseVisualStyleBackColor = true;
+            this.Extrapolate_Button.Click += new System.EventHandler(this.Extrapolate_Button_Click);
             // 
-            // textBox1
+            // Extrapolate_TextBox
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.textBox1.Location = new System.Drawing.Point(808, 49);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(887, 34);
-            this.textBox1.TabIndex = 7;
+            this.Extrapolate_TextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.Extrapolate_TextBox.Location = new System.Drawing.Point(808, 49);
+            this.Extrapolate_TextBox.Name = "Extrapolate_TextBox";
+            this.Extrapolate_TextBox.Size = new System.Drawing.Size(887, 34);
+            this.Extrapolate_TextBox.TabIndex = 7;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1727, 697);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(1727, 668);
+            this.Controls.Add(this.Extrapolate_TextBox);
             this.Controls.Add(this.Extrapolate_Button);
             this.Controls.Add(this.Result_richTextBox);
             this.Controls.Add(this.Chart);
@@ -140,7 +141,7 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart Chart;
         private System.Windows.Forms.RichTextBox Result_richTextBox;
         private System.Windows.Forms.Button Extrapolate_Button;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Extrapolate_TextBox;
     }
 }
 
