@@ -44,5 +44,42 @@ namespace VSC
                 }
             }
         }
+
+        private void CreateChart(DataTable dataTable)
+        {
+            Chart.Series.Clear();
+            Chart.ChartAreas.Clear();
+            Chart.ChartAreas.Add(new ChartArea("MainArea"));
+
+            var xColumn = dataTable.Columns[0];
+            var numericColumns = dataTable.Columns.Cast<DataColumn>()
+                                .Where(col => col != xColumn && (col.DataType == typeof(double) || col.DataType == typeof(int)))
+                                .ToList();
+
+            if (numericColumns.Count == 0)
+            {
+                MessageBox.Show("Не найдены числовые столбцы для построения графиков.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            foreach (var numericColumn in numericColumns)
+            {
+                var series = new Series(numericColumn.ColumnName) { ChartType = SeriesChartType.Line };
+
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    if (row[xColumn] != DBNull.Value && row[numericColumn] != DBNull.Value)
+                    {
+                        if (double.TryParse(row[xColumn].ToString(), out double xValue) && double.TryParse(row[numericColumn].ToString(), out double yValue))
+                        {
+                            series.Points.AddXY(xValue, yValue);
+                        }
+                    }
+                }
+
+                Chart.Series.Add(series);
+            }
+        }
+
     }
 }
