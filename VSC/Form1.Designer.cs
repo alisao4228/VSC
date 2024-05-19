@@ -102,7 +102,6 @@
             this.Extrapolate_Button.TabIndex = 6;
             this.Extrapolate_Button.Text = "Реализовать статистическое прогнозирование";
             this.Extrapolate_Button.UseVisualStyleBackColor = true;
-            this.Extrapolate_Button.Click += new System.EventHandler(this.Extrapolate_Button_Click);
             // 
             // Extrapolate_TextBox
             // 
@@ -116,7 +115,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1727, 668);
+            this.ClientSize = new System.Drawing.Size(1727, 697);
             this.Controls.Add(this.Extrapolate_TextBox);
             this.Controls.Add(this.Extrapolate_Button);
             this.Controls.Add(this.Result_richTextBox);
