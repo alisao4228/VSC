@@ -88,7 +88,7 @@
             // 
             // Result_richTextBox
             // 
-            this.Result_richTextBox.Location = new System.Drawing.Point(808, 585);
+            this.Result_richTextBox.Location = new System.Drawing.Point(808, 603);
             this.Result_richTextBox.Name = "Result_richTextBox";
             this.Result_richTextBox.Size = new System.Drawing.Size(887, 67);
             this.Result_richTextBox.TabIndex = 4;
@@ -115,7 +115,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1727, 668);
+            this.ClientSize = new System.Drawing.Size(1727, 697);
             this.Controls.Add(this.Extrapolate_TextBox);
             this.Controls.Add(this.Extrapolate_Button);
             this.Controls.Add(this.Result_richTextBox);
