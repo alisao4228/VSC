@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.Open_Button = new System.Windows.Forms.Button();
             this.Info_TextBox = new System.Windows.Forms.TextBox();
             this.Table_DataGridView = new System.Windows.Forms.DataGridView();
@@ -88,7 +88,7 @@
             // 
             // Result_richTextBox
             // 
-            this.Result_richTextBox.Location = new System.Drawing.Point(808, 362);
+            this.Result_richTextBox.Location = new System.Drawing.Point(808, 603);
             this.Result_richTextBox.Name = "Result_richTextBox";
             this.Result_richTextBox.Size = new System.Drawing.Size(887, 67);
             this.Result_richTextBox.TabIndex = 4;

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Data;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using ExcelDataReader;
 
 namespace VSC
@@ -39,6 +41,9 @@ namespace VSC
                         {
                             DataTable dataTable = result.Tables[0];
                             Table_DataGridView.DataSource = dataTable;
+
+                            // Построение графиков на основе данных из DataGridView
+                            CreateChart(dataTable);
                         }
                     }
                 }
